@@ -2,10 +2,157 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>个人简历</title>
+    <script>
+    // 自适应布局
+
+    (function (win) {
+        var doc = win.document
+        var docEl = doc.documentElement
+        var tid
+
+        function refreshRem () {
+            var width = docEl.getBoundingClientRect().width
+            if (width > 768) { // 最大宽度
+                width = 768
+            }
+            var rem = width / 3.75
+            docEl.style.fontSize = rem + 'px'
+        }
+
+        win.addEventListener('resize', function () {
+            clearTimeout(tid)
+            tid = setTimeout(refreshRem, 300)
+        }, false)
+        win.addEventListener('pageshow', function (e) {
+            if (e.persisted) {
+                clearTimeout(tid)
+                tid = setTimeout(refreshRem, 300)
+            }
+        }, false)
+        refreshRem()
+    })(window)
+    </script>
+    <style>
+        body, dl, dt, dd{
+            padding: 0;
+            margin: 0;
+        }
+        .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+        .clearfloat{zoom:1}
+        .wrap{
+           font-size: 0.14rem;
+            max-width: 4.5rem;
+            margin: 0 auto;
+            color: #333333;
+        }
+        .top-bg{
+            background: #0b70bd url(./images/top_08.png) no-repeat center 48px;
+            position: relative;
+            width: 100%;
+            margin-bottom: 0.38rem;
+            background-size: 2rem !important;
+            color: #fff;
+            height: 1.48rem;
+        }
+        .top-bg:before, .top-bg:after{
+            content: "";
+            top: 0;
+            position: absolute;
+        }
+        .top-bg:before{
+            left: 0;
+            width: 1.32rem;
+            height: 0.96rem;
+            background: url(./images/top_03.png) no-repeat 0 0;
+            background-size: contain;
+        }
+        .top-bg:after{
+            right: 0;
+            width: 1.80rem;
+            height: 1.08rem;
+            background: url(./images/top_02.png) no-repeat 0.8rem 0;
+            background-size: contain;
+        }
+        .photo{
+            height: 1.5rem;
+            width: 1.2rem;
+            border: 0.01rem solid #e5e5e5;
+            margin: auto;
+        }
+        .baseInfor{
+            text-align: center;
+            padding-bottom: 0.2rem;
+        }
+        .baseInfor h2{
+            font-size: 0.24rem;
+        }
+        .baseInfor .introduce{
+            padding: 0 0.15rem;
+        }
+        .baseInfor .someInfor span{
+            border-right: 0.01rem solid #e5e5e5;
+            padding: 0 0.06rem;
+            font-size: 0.12rem;
+        }
+        .line-bg{
+            width: 96%;
+            margin: auto;
+            height: 0.06rem;
+            background: url("./images/dt_03.png") no-repeat center;
+            background-size: 100% 0.06rem;
+        }
+        dl{
+            padding: 0.15rem;
+        }
+        dl dt{
+            width: 90%;
+            height: 0.4rem;
+            font-size: 0.16rem;
+            color: #0b70bd;
+            line-height: 0.4rem;
+            text-align: center;
+            position: relative;
+            margin: auto;
+        }
+        dl dt span{
+            display: inline-block;
+            width: 1.76rem;
+            margin: auto;
+            background: url("./images/dt_07.png") no-repeat center;
+            background-size: contain;
+            z-index: 5;
+        }
+        dl dt span:before{
+            background: #0b70bd;
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 2px;
+            top: 19px;
+            left: 0;
+            z-index: -1;
+        }
+
+    </style>
 </head>
 <body>
-<div>石艳琳</div>
+<div class="wrap clearfloat">
+    <div class="top-bg clearfloat"></div>
+    <div class="photo"></div>
+    <div class="baseInfor">
+        <h2>石艳琳</h2>
+        <p class="introduce">活泼热情，待人真诚，踏实肯干，热爱学习的我，你值得拥有！</p>
+        <p class="someInfor"><span>24岁</span><span>现住广州</span><span>18878554246</span><span>18878554246@163.com</span></p>
+    </div>
+    <p class="line-bg"></p>
+    <dl>
+        <dt class="clearfloat"><span>求职意向</span></dt>
+        <dd class="clearfloat">
+        </dd>
+    </dl>
+</div>
 
 </body>
 </html>
